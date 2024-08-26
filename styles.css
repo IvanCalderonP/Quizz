@@ -1,0 +1,124 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #00274D; /* Fondo azul oscuro */
+    overflow: hidden;
+}
+
+/* Semicírculos celestes oscuros */
+.semicircle {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    border-radius: 200px 200px 0 0;
+    background: #004B49; /* Celeste oscuro */
+}
+
+.semicircle.left {
+    top: 0;
+    left: 0;
+}
+
+.semicircle.right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Semicírculos internos centrados */
+.inner-semicircle {
+    position: absolute;
+    width: 250px;
+    height: 125px;
+    border-radius: 125px 125px 0 0;
+    background: #00274D; /* Fondo azul oscuro */
+}
+
+.inner-semicircle.left {
+    top: 75px; /* Centramos verticalmente dentro del semicírculo externo */
+    left: 75px; /* Centramos horizontalmente dentro del semicírculo externo */
+}
+
+.inner-semicircle.right {
+    bottom: 75px; /* Centramos verticalmente dentro del semicírculo externo */
+    right: 75px; /* Centramos horizontalmente dentro del semicírculo externo */
+    transform: rotate(180deg);
+}
+
+/* Contenido central */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+}
+
+h1 {
+    font-size: 3.5em; /* Tamaño de fuente aumentado */
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 3em; /* Tamaño de fuente aumentado */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1.2em; /* Tamaño de fuente aumentado */
+    font-style: italic;
+    color: #B0C4DE; /* Celeste metálico */
+    margin-top: 10px;
+}
+
+/* Contenedor del botón */
+.button-container {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 40%; /* Ajusta el tamaño del contenedor de botones */
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #004B49; /* Azul más claro */
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1.5em; /* Tamaño de fuente aumentado */
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px; /* Espaciado entre botones */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.js-button {
+    background-color: #004B49; /* Mismo color que el primer botón */
+}
+
+.button .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
