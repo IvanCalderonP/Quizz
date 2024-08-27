@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #00274D;
+    color: #ecf0f1;
+    margin: 0;
+    padding: 20px;
+}
+
+.quiz-container {
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.icon {
+    background-color: #9b59b6;
+    padding: 5px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+
+.quiz-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.question-section {
+    flex: 1;
+}
+
+.options-section {
+    flex: 1;
+}
+
+.question-number {
+    color: #bdc3c7;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: grid;
+    gap: 15px;
+}
+
+.option {
+    background-color: #004B49;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1em;
+    color: #ecf0f1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #00635e;
+}
+
+.option-letter {
+    background-color: #7f8c8d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.siguente-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.siguente-btn {
+    background-color: #138581;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 40%;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: center;
+}
+
+.siguente-btn:hover {
+    background-color: #004B49;
+}
