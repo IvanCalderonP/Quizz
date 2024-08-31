@@ -224,48 +224,63 @@ const lista = [
 const main = document.querySelector("main");
 
 lista.forEach(item => {
-    const opcionesHTML = item.respuesta.map(value => {
-        return `
-            <button class="option" name="Respuesta" value="${value.correcta}">
-                <span class="option-letter">${value.respuesta}</span>
-            </button>
-        `;
-    }).join('');
-
-    const quizContent = document.createElement('div');
-    quizContent.className = 'quiz-content';
-    quizContent.innerHTML = `
-        <div class="question-section">
-            <p class="question-number">Pregunta ${item.id}</p>
-            <h1>${item.pregunta}</h1>
-        </div>
-        <div class="options-section">
-            <div class="options">
-                ${opcionesHTML}
-            </div>
-        </div>
+  const opcionesHTML = item.respuesta.map(value => {
+    return `
+      <button class="option" name="Respuesta" value="${value.correcta}">
+        <span class="option-letter">${value.respuesta}</span>
+      </button>
     `;
-    
-    /* funcion de verificar respuesta */
-    main.appendChild(quizContent);
+  }).join('');
 
-    const opcionBoton = quizContent.querySelectorAll('.option');
-    
-    opcionBoton.forEach(button => {
-        button.addEventListener('click', function() {
-            opcionBoton.forEach(btn => btn.disabled = true);
+  main.insertAdjacentHTML("beforeend",  `
+    <div class="quiz-content">
+      <div class="question-section">
+        <p class="question-number">Pregunta ${item.id}</p>
+        <h1>${item.pregunta}</h1>
+      </div>
+      <div class="options-section">
+        <div class="options">
+          ${opcionesHTML}
+        </div>
+      </div>
+    </div>
+  `);
+});
 
-            if (this.value === "true") {
-                this.style.backgroundColor = "green";
-            } else {
-                this.style.backgroundColor = "red";
-                /* mostrar la respuesta correcta */
-                opcionBoton.forEach(btn => {
-                    if (btn.value === "true") {
-                        btn.style.backgroundColor = "green";
-                    }
-                });
-            }
-        });
-    });
+function scorePuntaje() {
+  let score = 0;
+  let correctas = 0;
+  let incorrectas = 0;
+  const totalPreguntas = lista.length;
+
+  const selectRespuestas = document.querySelectorAll('button.option[selected]');
+
+  selectRespuestas.forEach((respuesta) => { 
+      if (respuesta.value === "true") {
+          score += 1; 
+          correctas++;
+      } else {
+          incorrectas++;
+      }
+  });
+  
+  document.getElementById('Puntos').innerText = `TUS PUNTOS TOTALES SON: ${score} SOBRE: ${totalPreguntas}`;
+  document.getElementById('info').innerText = `USTED OBTUVO ${correctas} RESPUESTAS BUENAS Y ${incorrectas} RESPUESTAS MALAS`;
+  
+  document.getElementById('resultados').style.display = 'block';
+  document.getElementById('enviar-test').style.display = 'none';
+}
+
+document.querySelectorAll('button.option').forEach(button => {
+  button.addEventListener('click', function() {
+      const siblings = this.parentElement.querySelectorAll('button');
+      siblings.forEach(sib => sib.removeAttribute('selected'));
+      this.setAttribute('selected', 'true');
+  });
+});
+
+document.getElementById('enviar-test').addEventListener('click', scorePuntaje);
+
+document.getElementById('reiniciar-test').addEventListener('click', function() {
+  location.reload();
 });
