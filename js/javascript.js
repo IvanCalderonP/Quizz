@@ -224,27 +224,50 @@ const lista = [
 const main = document.querySelector("main");
 
 lista.forEach(item => {
-  const opcionesHTML = item.respuesta.map(value => {
-    return `
-      <button class="option" name="Respuesta" value="${value.correcta}">
-        <span class="option-letter">${value.respuesta}</span>
-      </button>
-    `;
-  }).join('');
+    const opcionesHTML = item.respuesta.map(value => {
+        return `
+            <button class="option" name="Respuesta" value="${value.correcta}">
+                <span class="option-letter">${value.respuesta}</span>
+            </button>
+        `;
+    }).join('');
 
-  main.insertAdjacentHTML("beforeend",  `
-    <div class="quiz-content">
-      <div class="question-section">
-        <p class="question-number">Pregunta ${item.id}</p>
-        <h1>${item.pregunta}</h1>
-      </div>
-      <div class="options-section">
-        <div class="options">
-          ${opcionesHTML}
+    const quizContent = document.createElement('div');
+    quizContent.className = 'quiz-content';
+    quizContent.innerHTML = `
+        <div class="question-section">
+            <p class="question-number">Pregunta ${item.id}</p>
+            <h1>${item.pregunta}</h1>
         </div>
-      </div>
-    </div>
-  `);
+        <div class="options-section">
+            <div class="options">
+                ${opcionesHTML}
+            </div>
+        </div>
+    `;
+    
+    /* funcion de verificar respuesta */
+    main.appendChild(quizContent);
+
+    const opcionBoton = quizContent.querySelectorAll('.option');
+    
+    opcionBoton.forEach(button => {
+        button.addEventListener('click', function() {
+            opcionBoton.forEach(btn => btn.disabled = true);
+
+            if (this.value === "true") {
+                this.style.backgroundColor = "green";
+            } else {
+                this.style.backgroundColor = "red";
+                /* mostrar la respuesta correcta */
+                opcionBoton.forEach(btn => {
+                    if (btn.value === "true") {
+                        btn.style.backgroundColor = "green";
+                    }
+                });
+            }
+        });
+    });
 });
 
 function scorePuntaje() {
