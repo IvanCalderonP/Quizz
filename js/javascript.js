@@ -220,3 +220,35 @@ const lista = [
       ]
     }
   ];
+
+
+//en el html
+//iterar (bucle, map(), for)
+lista.map(item => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class="quiz-content">
+    <div class="question-section">
+      <p class="question-number">Pregunta ${item.id}</p>
+      <h1>${item.pregunta}</h1>
+    </div>
+
+    <div class="options-section">
+      <div class="options">
+        ${
+          item.respuesta.map(value =>{
+            return(
+              <button class="option" name="Respuesta" value="${value.correcta}">
+                <span class="option-letter">${value.respuesta}</span>
+              </button>
+            )
+          })
+        }
+      </div>
+    </div>
+  </div>
+  `;
+
+  document.body.main.appendChild(div);
+})
+  
