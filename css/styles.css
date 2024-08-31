@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #00274D; 
+    overflow: hidden;
+}
+
+/* Semicírculos celestes oscuros */
+.semicircle {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    border-radius: 200px 200px 0 0;
+    background: #004B49;
+}
+
+.semicircle.left {
+    top: 0;
+    left: 0;
+}
+
+.semicircle.right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Semicírculos internos centrados */
+.inner-semicircle {
+    position: absolute;
+    width: 250px;
+    height: 125px;
+    border-radius: 125px 125px 0 0;
+    background: #00274D;
+}
+
+.inner-semicircle.left {
+    top: 75px; 
+    left: 75px; 
+}
+
+.inner-semicircle.right {
+    bottom: 75px; 
+    right: 75px; 
+    transform: rotate(180deg);
+}
+
+/* Contenido central */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+}
+
+h1 {
+    font-size: 3.5em; 
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 3em; 
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1.2em; 
+    font-style: italic;
+    color: #B0C4DE; 
+    margin-top: 10px;
+}
+
+
+.button-container {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 40%; 
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #004B49; 
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 1.5em; 
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    background-color: #004B49; 
+}
+
+.button .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
