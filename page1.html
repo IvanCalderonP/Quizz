@@ -4,16 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pregunta 1</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="quiz-container">
         <!-- Comienza quizz-->
-        <main>
-        </main>
-        <script src="./js/javascript.js"></script>
+        <main></main>
+        <!-- chicos les agregue esta parte acá(este div) para que muestre los resultados al finalizar -->
+        <div id="resultados" style="display: none;">
+            <p id="Puntos"></p>
+            <p id="info"></p>
+            <button id="reiniciar-test">REINICIAR QUIZZ</button> <!--Este boton de acá es el que aparecera al final, es decir cuándo ya nos muestre el total de puntos que tengamos-->
+        </div>
+        <!--Y este botón de acá es el que sale al final de la última pregunta, le damos enviar para que nos muestre el resultado-->
+        <button id="enviar-test">ENVIAR QUIZZ</button>
     </div>
+
+    <script src="./js/javascript.js"></script>
 </body>
 
 </html>
